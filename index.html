@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pathfinding Visualizer | Portafolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <h1>Pathfinding Visualizer</h1>
+      <span class="badge">Grafos & Heurísticas</span>
+    </div>
+
+    <div class="controls">
+      <select id="algorithmSelect" aria-label="Seleccionar algoritmo">
+        <option value="astar">A* (A-Star)</option>
+        <option value="dijkstra">Dijkstra</option>
+        <option value="bfs">Breadth-First Search (BFS)</option>
+      </select>
+
+      <select id="speedSelect" aria-label="Velocidad de animación">
+        <option value="10">Velocidad: Rápida</option>
+        <option value="25" selected>Velocidad: Normal</option>
+        <option value="60">Velocidad: Lenta</option>
+      </select>
+
+      <button id="visualizeBtn" class="btn-primary" type="button">Visualizar</button>
+      <button id="mazeBtn" class="btn-secondary" type="button">Generar Laberinto</button>
+      <button id="clearPathBtn" class="btn-secondary" type="button">Limpiar Ruta</button>
+      <button id="resetBtn" class="btn-danger" type="button">Reiniciar Todo</button>
+    </div>
+  </header>
+
+  <section class="status-bar">
+    <div class="legend">
+      <span class="legend-item"><i class="box start"></i> Inicio</span>
+      <span class="legend-item"><i class="box end"></i> Destino</span>
+      <span class="legend-item"><i class="box wall"></i> Muro</span>
+      <span class="legend-item"><i class="box visited"></i> Explorado</span>
+      <span class="legend-item"><i class="box path"></i> Ruta óptima</span>
+    </div>
+
+    <div class="metrics">
+      <span>Nodos explorados: <strong id="visitedCount">0</strong></span>
+      <span>Longitud de ruta: <strong id="pathLength">0</strong></span>
+      <span id="algoComplexity" class="complexity-tag">O((V + E) log V)</span>
+    </div>
+  </section>
+
+  <main class="board-wrapper">
+    <p class="hint">Haz clic y arrastra sobre la cuadrícula para dibujar muros, o arrastra los nodos de inicio y destino.</p>
+    <div id="grid" class="grid" role="grid" aria-label="Cuadrícula de búsqueda de rutas"></div>
+  </main>
+
+  <script src="algorithms.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
